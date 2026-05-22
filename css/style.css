@@ -32,10 +32,23 @@
 
 .main-container {
     min-height: 100vh;
+    isolation: isolate;
+    position: relative;
+}
+
+.main-container::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30vh;
+    background-color: var(--primary-black);
+    filter: blur(10px);
+    z-index: -1;
 }
 
 .border {
-    border: 2px solid green;
+    border: 2px solid red;
 }
 
 
@@ -49,6 +62,7 @@
     height: 25rem;
     border-radius: 50%;
     filter: blur(80px);
+    z-index: -2;
 }
 
 .container {
@@ -74,7 +88,6 @@ header {
     position: absolute;
     width: 1.4rem;
     aspect-ratio: 1;
-    /* background-color: red; */
     border: .1rem solid var(--primary-white);
 }
 
@@ -121,7 +134,47 @@ a {
     text-decoration: none;
 }
 
+/* Hero Section Start */
 .hero-section {
     height: calc(100vh - 14vh);
-    background-color: yellow;
+    display: flex;
+    justify-content: center;
 }
+
+.left-container {
+    flex: 1;
+    align-self: center;
+}
+
+.left-container h1 {
+    text-transform: uppercase;
+    font-size: 4.1rem;
+    color: var(--primary-white);
+}
+
+img {
+    height: 100%;
+    display: inline-block;
+    margin: auto;
+}
+
+.right-container {
+    flex: 1;
+    align-self: flex-end;
+    margin-bottom: 5rem;
+}
+
+.para {
+    font-size: 1rem;
+    color: var(--primary-white);
+    line-height: 1.7rem;
+    padding: 1rem 0 2.5rem 0;
+}
+
+[data-type="border-para"] {
+    border-right: .5rem solid var(--primary-pista);
+    text-align: end;
+    padding-right: 2rem;
+}
+
+/* Hero Section End */
